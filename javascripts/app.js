@@ -66,9 +66,8 @@ $(document).ready(function () {
         getLibrary().success(function (response) {
             self.library = response;
 
-            renderNavigationUI();
-
             loadCorrectGuide();
+            renderNavigationUI();
         });
     }
 
