@@ -182,4 +182,6 @@ $.ready(function () {
     function setLoading (loading) {
 
     }
+
+    startupUI();//Kick this pony show off
 });
