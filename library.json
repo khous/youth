@@ -1,0 +1,7 @@
+{
+    lessons:[{
+        dateStart: "DateTime String",
+        dateEnd: "DateTime String",
+        guides: ["Paths", "in", "chron", "order"]
+    }]
+}
