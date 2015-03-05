@@ -91,8 +91,8 @@ $(document).ready(function () {
         ui.previousButton.on("click", previousGuide);
         ui.nextButton.on("click", nextGuide);
 
-        ui.seriesBrowser.on("select", selectSeries);
-        ui.guideBrowser.on("select", selectGuide);
+        ui.seriesBrowser.on("change", selectSeries);
+        ui.guideBrowser.on("change", selectGuide);
 
         ui.guideButton.on("click", toggleGuideOrReference);
         ui.referenceButton.on("click", toggleGuideOrReference);
