@@ -5,6 +5,18 @@
         "guides": [{
             "guide": "1-blessed.md",
             "reference": ""
+        }, {
+            "guide": "2-allofthelights.md",
+            "reference": ""
+        }, {
+            "guide": "3-growup.md",
+            "reference": ""
+        }, {
+            "guide": "4-thinkingoutloud.md",
+            "reference": ""
+        }, {
+            "guide": "5-relax.md",
+            "reference": ""
         }]
     }]
 }

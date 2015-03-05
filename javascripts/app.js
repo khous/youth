@@ -11,8 +11,22 @@ $(document).ready(function () {
     var self = this;
 
     function setGuide (index) {
+        var ui = self.ui,
+            next = ui.nextButton,
+            prev = ui.prev,
+            numberOfGuides = self.currentSeries.guides.length,
+            disabled = "disabled";
         self.currentGuideIdx = index;
         renderReferenceAndGuide();
+
+        if (numberOfGuides === 1) {// the only special case I can think of
+            prev.prop(disabled, true);
+            next.prop(disabled, true);
+        } else {
+            prev.prop(disabled, index === 0);
+            next.prop(disabled, index === self.currentSeries.guides.length - 1);//if we're at the end of the index
+        }
+
         //set correct buttons enabled and disabled
     }
 
@@ -141,7 +155,7 @@ $(document).ready(function () {
         self.currentSeries.guides.forEach(function (guide, i) {
             var node = $("<option>");
 
-            node.html("Week " + i);
+            node.html("Week " + (i + 1));
             node.data("index", i);
 
             guides.push(node);
