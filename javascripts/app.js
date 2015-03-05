@@ -160,11 +160,11 @@ $(document).ready(function () {
     }
 
     function composePath (path) {
-        return self.currentSeries.rootPath + path;
+        return self.currentSeries.rootPath + "/" + path;
     }
 
     function renderReference () {
-        return renderMarkdown(self.ui.guidNode, composePath(getCurrentGuide().reference));
+        return renderMarkdown(self.ui.guideNode, composePath(getCurrentGuide().reference));
     }
 
     function renderMarkdown (node, pathToMarkdown) {
