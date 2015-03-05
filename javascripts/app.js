@@ -86,7 +86,7 @@ $.ready(function () {
     }
 
     function getLibrary () {
-        return $.get("/library.json");
+        return $.get("library.json");
     }
 
     //Called after most user actions
