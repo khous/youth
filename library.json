@@ -1,7 +1,10 @@
 {
-    lessons:[{
-        dateStart: "DateTime String",
-        dateEnd: "DateTime String",
-        guides: ["Paths", "in", "chron", "order"]
+    "lessons":[{
+        "dateStart": "DateTime String",
+        "dateEnd": "DateTime String",
+        "guides": [{//In chronological order
+            "guide": "path to markdown",
+            "reference": "path"
+        }]
     }]
 }
