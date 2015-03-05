@@ -13,7 +13,7 @@ $(document).ready(function () {
     function setGuide (index) {
         var ui = self.ui,
             next = ui.nextButton,
-            prev = ui.prev,
+            prev = ui.previousButton,
             numberOfGuides = self.currentSeries.guides.length,
             disabled = "disabled";
         self.currentGuideIdx = index;
