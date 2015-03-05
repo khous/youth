@@ -35,7 +35,7 @@ $(document).ready(function () {
     }
 
     function previousGuide () {
-        setGuide(index - 1);
+        setGuide(self.currentGuideIdx - 1);
     }
 
     function selectSeries () {
