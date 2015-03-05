@@ -1,4 +1,4 @@
-$.ready(function () {
+$(document).ready(function () {
 /*
     series browser, Guide browser (DDL and cursors)
     flow, get library.json
