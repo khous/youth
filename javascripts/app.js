@@ -156,7 +156,7 @@ $(document).ready(function () {
     }
 
     function renderGuide () {
-        return renderMarkdown(self.ui.guidNode, composePath(getCurrentGuide().guide));
+        return renderMarkdown(self.ui.guideNode, composePath(getCurrentGuide().guide));
     }
 
     function composePath (path) {
@@ -164,7 +164,7 @@ $(document).ready(function () {
     }
 
     function renderReference () {
-        return renderMarkdown(self.ui.guideNode, composePath(getCurrentGuide().reference));
+        return renderMarkdown(self.ui.referenceNode, composePath(getCurrentGuide().reference));
     }
 
     function renderMarkdown (node, pathToMarkdown) {
