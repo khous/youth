@@ -1,5 +1,5 @@
 {
-    "lessons":[{
+    "series":[{
         "dateStart": "DateTime String",
         "dateEnd": "DateTime String",
         "guides": [{//In chronological order
