@@ -125,6 +125,7 @@ $.ready(function () {
     function renderSeriesSelect () {
         var seriesBrowser = self.ui.seriesBrowser,
             seriesNodes = [];
+
         self.library.series.forEach(function (series, i) {
             var node = $("<option>");
             node.html(series.title);
@@ -156,11 +157,15 @@ $.ready(function () {
     }
 
     function renderGuide () {
-        return renderMarkdown(self.ui.guidNode, getCurrentGuide().guide);
+        return renderMarkdown(self.ui.guidNode, composePath(getCurrentGuide().guide));
+    }
+
+    function composePath (path) {
+        return self.currentSeries.rootPath + path;
     }
 
     function renderReference () {
-        return renderMarkdown(self.ui.guidNode, getCurrentGuide().reference);
+        return renderMarkdown(self.ui.guidNode, composePath(getCurrentGuide().reference));
     }
 
     function renderMarkdown (node, pathToMarkdown) {

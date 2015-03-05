@@ -1,10 +1,10 @@
 {
     "series":[{
-        "dateStart": "DateTime String",
-        "dateEnd": "DateTime String",
-        "guides": [{//In chronological order
-            "guide": "path to markdown",
-            "reference": "path"
+        "title": "The Mountain",
+        "rootPath": "/lessons/3-5-2015_Mountain",
+        "guides": [{
+            "guide": "1-blessed.md",
+            "reference": ""
         }]
     }]
 }
