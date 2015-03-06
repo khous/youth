@@ -1,24 +1,21 @@
-#thinkingoutloud
+#\#thinkingoutloud
 
-Matthew 6:5-18
+[Matthew 6:5-18](https://www.biblegateway.com/passage/?search=Matthew%206:5-18)
 
-Big Idea: Talking with God is simple
+**BIG IDEA**: Talking with God is simple
 
 1. He’s got you
-
 2. You’ll be free
-
 3. You’ll be connected
-
 4. You’ll concentrate on God
 
-Action step: Talk to God
+###Action Point: Talk to God
 
-Questions
+####Questions
 
-1. What is something that seemed HUGE as a kid? (I.E. playground, Big slide,
+1. What is something that seemed HUGE as a kid? (I.E. playground, Big slide, fridge, parents…)
 
-fridge, parents…) As a teenager how do you see it now?
+   As a teenager how do you see it now?
 
 2. Where/How did you learn how to pray?
 

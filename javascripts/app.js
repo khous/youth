@@ -11,13 +11,18 @@ $(document).ready(function () {
     var self = this;
 
     function setGuide (index) {
+        self.currentGuideIdx = index;
+
+        updateUI();
+    }
+
+    function setNavigationButtonState () {
         var ui = self.ui,
             next = ui.nextButton,
             prev = ui.previousButton,
             numberOfGuides = self.currentSeries.guides.length,
-            disabled = "disabled";
-        self.currentGuideIdx = index;
-        renderReferenceAndGuide();
+            disabled = "disabled",
+            index = self.currentGuideIdx;
 
         if (numberOfGuides === 1) {// the only special case I can think of
             prev.prop(disabled, true);
@@ -42,19 +47,25 @@ $(document).ready(function () {
         var selectedSeriesIndex = self.ui.seriesBrowser.find("option:selected").data("index");
         self.currentSeries = self.library.series[selectedSeriesIndex];
         self.currentGuideIdx = 0;
+        self.currentSeriesIdx = selectedSeriesIndex;
 
-        renderReferenceAndGuide();
+        updateUI();
     }
 
     function selectGuide () {
         var selectedGuideIndex = self.ui.guideBrowser.find("option:selected").data("index");
         self.currentGuideIdx = selectedGuideIndex;
 
-        renderReferenceAndGuide();
+        updateUI();
     }
 
     function toggleGuideOrReference (e) {
+        var ui = self.ui,
+            guideButton = ui.guideButton,
+            showReference = !!guideButton.prop("checked");
 
+        ui.guideNode.toggleClass("hidden", !showReference);
+        ui.referenceNode.toggleClass("hidden", showReference);
     }
 
     //grab all the elements and assign them to me
@@ -69,8 +80,8 @@ $(document).ready(function () {
             guideBrowser: $(".guide-browser"),
             previousButton: $("button.previous"),
             nextButton: $("button.next"),
-            guideButton: $(".guide-reference-toggle button.guide"),
-            referenceButton: $(".guide-reference-toggle button.reference"),
+            guideButton: $(".guide-reference-toggle .guide input"),
+            referenceButton: $(".guide-reference-toggle .reference input"),
             guideNode: $(".guide-md"),
             referenceNode: $(".reference-md")
         };
@@ -82,6 +93,7 @@ $(document).ready(function () {
 
             loadCorrectGuide();
             renderNavigationUI();
+            updateUIState();
         });
     }
 
@@ -94,8 +106,8 @@ $(document).ready(function () {
         ui.seriesBrowser.on("change", selectSeries);
         ui.guideBrowser.on("change", selectGuide);
 
-        ui.guideButton.on("click", toggleGuideOrReference);
-        ui.referenceButton.on("click", toggleGuideOrReference);
+        ui.guideButton.on("change", toggleGuideOrReference);
+        ui.referenceButton.on("change", toggleGuideOrReference);
     }
 
     function getLibrary () {
@@ -104,25 +116,23 @@ $(document).ready(function () {
 
     //Called after most user actions
     function saveStateToLocalStorage () {
-
-    }
-
-    //Called when UI is built
-    function setStateFromLocalStorage () {
-        //set series, guide, reference or guide
+        localStorage.setItem("lastSeriesViewed", self.currentSeriesIdx);
+        localStorage.setItem("lastGuideViewed", self.currentGuideIdx);
     }
 
     function loadCorrectGuide () {
         //determine correct Guide based on either local storage or date
-        var lastSeriesIndex = localStorage && localStorage.getItem("lastGuideViewed"),
-            lastGuideIndex = localStorage && localStorage.getItem("lastGuideViewed");
+        var lastSeriesIndex = localStorage && parseInt(localStorage.getItem("lastSeriesViewed"), 10),
+            lastGuideIndex = localStorage &&  parseInt(localStorage.getItem("lastGuideViewed"), 10);
 
         if (lastGuideIndex || lastGuideIndex === 0) {
             //recall that guide by index
             self.currentGuideIdx = lastGuideIndex;
+            self.currentSeriesIdx = lastSeriesIndex;
             self.currentSeries = self.library.series[lastSeriesIndex];
         } else {//just set to first lesson right meow
             self.currentGuideIdx = 0;
+            self.currentSeriesIdx = 0;
             self.currentSeries = self.library.series[0];
         }
 
@@ -194,6 +204,22 @@ $(document).ready(function () {
     //Disable UI and show mask when loading
     function setLoading (loading) {
 
+    }
+
+    function updateUIState () {
+        //Set next previous enabled disabled,
+        setNavigationButtonState();
+        //enabled disable reference button
+        self.ui.referenceButton.prop("disabled", !getCurrentGuide().reference);
+
+        self.ui.guideBrowser.find("option")[self.currentGuideIdx].selected = true;
+        //set week drop down
+    }
+
+    function updateUI () {
+        renderReferenceAndGuide();
+        updateUIState();
+        saveStateToLocalStorage();
     }
 
     startupUI();//Kick this pony show off

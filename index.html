@@ -1,12 +1,10 @@
 <!doctype html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>NL BI Youth</title>
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <!--[if lt IE 9]>
@@ -17,39 +15,51 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.2/marked.min.js"></script>
     <script src="javascripts/app.js"></script>
 
-  </head>
-  <body>
-    <nav>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+</head>
+<body>
+
+<nav class="nav navbar navbar-default">
+    <div class="navbar-form navbar-left">
         <label>
             series
-            <select class="series-browser">
+            <select class="form-control series-browser">
             </select>
         </label>
-        <button class="previous">previous</button>
+        <button class="btn btn-default previous">previous</button>
         <label>
             lesson
-            <select class="guide-browser">
+            <select class="form-control guide-browser">
             </select>
         </label>
-        <button class="next">
+        <button class="btn btn-default next">
             next
         </button>
-
-        <div class="guide-reference-toggle">
-            <button class="guide">
-                guide
-            </button>
-            <button class="reference">
-                reference
-            </button>
+    </div>
+    <div class="navbar-form">
+        <div class="navbar-right">
+            <div class="radio guide-reference-toggle">
+                <label class="guide">
+                    <input type="radio" name="viewing-toggle" autocomplete="off" checked> guide
+                </label>
+                <label class="reference">
+                    <input type="radio" name="viewing-toggle" autocomplete="off"> reference
+                </label>
+            </div>
         </div>
-    </nav>
-    <div class="guide-md">
-
     </div>
-    <div class="reference-md hidden">
+</nav>
+<div class="container">
+    <div class="col-xs-12">
 
+        <div class="guide-md">
+
+        </div>
+        <div class="reference-md hidden">
+
+        </div>
     </div>
-    <script src="javascripts/scale.fix.js"></script>
-  </body>
+</div>
+<script src="javascripts/scale.fix.js"></script>
+</body>
 </html>
