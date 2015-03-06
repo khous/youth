@@ -17,39 +17,39 @@
 
     <link rel="stylesheet" href="stylesheets/styles.css">
 </head>
-<body>
+<body class="container-fluid">
 
-<nav class="nav navbar navbar-default">
-    <div class="navbar-form navbar-left">
+<div class="row heading-row">
+    <div class="col-xs-12">
         <label>
             series
             <select class="form-control series-browser">
             </select>
         </label>
-        <button class="btn btn-default previous">previous</button>
-        <label>
-            lesson
-            <select class="form-control guide-browser">
-            </select>
-        </label>
-        <button class="btn btn-default next">
-            next
-        </button>
+
+        <span style="display: inline-block">
+            <button class="btn btn-default previous">&lt</button>
+            <label>
+                lesson
+                <select class="form-control guide-browser">
+                </select>
+            </label>
+            <button class="btn btn-default next">
+                &gt
+            </button>
+        </span>
+
+        <span style="display:inline-block" class="radio guide-reference-toggle">
+            <label class="guide">
+                <input type="radio" name="viewing-toggle" autocomplete="off" checked> guide
+            </label>
+            <label class="reference">
+                <input type="radio" name="viewing-toggle" autocomplete="off"> reference
+            </label>
+        </span>
     </div>
-    <div class="navbar-form">
-        <div class="navbar-right">
-            <div class="radio guide-reference-toggle">
-                <label class="guide">
-                    <input type="radio" name="viewing-toggle" autocomplete="off" checked> guide
-                </label>
-                <label class="reference">
-                    <input type="radio" name="viewing-toggle" autocomplete="off"> reference
-                </label>
-            </div>
-        </div>
-    </div>
-</nav>
-<div class="container">
+</div>
+<div class="row">
     <div class="col-xs-12">
 
         <div class="guide-md">
