@@ -2,12 +2,15 @@
 I'll try to provide the gist beneath each section:
 
 1. Light brings color
+
    In the light we can discern what is good and evil. In the darkness we are blind. 
 
 2. Light brings Confidence
+
    In the dark we stumble, even in a place that's familiar to us. In the light there is certainty and confidence in the steps we take.
 
 3. Light draws people
+
    People are naturally drawn to the light and human nature leads us to fear the darkness. It's the same in our day to day lives. We will avoid those who are hostile to us, gravitate to those who are friendly. Think of a time when you've met a Christian beaming with the happiness and peace of the Holy Spirit.
 
 Action Step: Stop complaining about the dark, be the light!
