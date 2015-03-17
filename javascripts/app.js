@@ -59,10 +59,15 @@ $(document).ready(function () {
         updateUI();
     }
 
-    function toggleGuideOrReference (e) {
+    function toggleGuideOrReference (showGuide) {
         var ui = self.ui,
             guideButton = ui.guideButton,
-            showReference = !!guideButton.prop("checked");
+            showGuideOverride = showGuide === true,
+            showReference = showGuideOverride || !!guideButton.prop("checked");
+
+        if (showGuideOverride) {//this is kinda crappy to overload this function like this
+            guideButton.prop("checked", true);
+        }
 
         ui.guideNode.toggleClass("hidden", !showReference);
         ui.referenceNode.toggleClass("hidden", showReference);
@@ -175,8 +180,13 @@ $(document).ready(function () {
     }
 
     function renderReferenceAndGuide () {
-        renderGuide();
-        renderReference();
+        self.guideRequest && self.guideRequest.abort();
+        self.referenceRequest && self.referenceRequest.abort();
+
+        self.guideRequest = renderGuide();
+        self.referenceRequest = renderReference();
+
+        toggleGuideOrReference(true);
     }
 
     function renderGuide () {
